@@ -1,14 +1,15 @@
+const mongoose = require("mongoose");
+require("dotenv").config(); 
 
-const mongoose =require('mongoose');
-require("dotenv").config();
+const connectMongoDb = async () => {
+    try {
+        const uri = process.env.MONGO_URI;
+        console.log(`Connecting to MongoDB at ${uri}`);
+        await mongoose.connect(uri);
+        console.log('Connected to MongoDB');
+    } catch (err) {
+        console.error('Error connecting to MongoDB:', err);
+    }
+}
 
-
-const DB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/weddingevents';
-
-
-const connectMongodb = async () => {
-    if (mongoose.connection.readyState === 1) return;
-    await mongoose.connect(DB_URI);
-    console.log(mongoose.connection.readyState);
-};
-module.exports =  connectMongodb
+module.exports = { connectMongoDb };

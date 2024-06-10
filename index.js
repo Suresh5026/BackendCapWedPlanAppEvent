@@ -1,5 +1,5 @@
 const express = require('express');
-const connectMongoDb = require("./Database/db");
+const  { connectMongoDb } = require("./Database/db");
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
