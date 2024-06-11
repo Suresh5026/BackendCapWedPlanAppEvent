@@ -31,6 +31,12 @@ const bookingSchema = mongoose.Schema(
       ref: 'events',
       required: true,
     },
+    userId: {
+      type :mongoose.Schema.Types.ObjectId,
+      ref: 'users',
+      required: true,
+
+    },
     eventName: {
       type: String,
       required: true,

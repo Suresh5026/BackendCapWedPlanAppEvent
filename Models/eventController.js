@@ -36,7 +36,7 @@ router.delete("/delete-event/:id", validateToken,admin, async (req, res) => {
   }
 });
 
-router.get("/get-events", validateToken, async (req, res) => {
+router.get("/get-events", validateToken,admin, async (req, res) => {
   try {
     const event = await eventModel.find();
     return res.json({ data:event ,message: "Events Fetched Successfully" });
@@ -48,6 +48,7 @@ router.get("/get-events", validateToken, async (req, res) => {
 router.get("/get-events/:id",validateToken,admin,async(req,res)=>{
     try{
         const event =await eventModel.findById(req.params.id);
+        // console.log(event)
         return res.json({ data:event });
     }catch(error){
         return res.status(500).json({ message: error.message });

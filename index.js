@@ -9,10 +9,9 @@ require('dotenv').config();
 
 connectMongoDb();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 const HOSTNAME = process.env.HOSTNAME || 'localhost';
 
-// Middleware to parse JSON bodies
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
