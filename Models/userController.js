@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const validateToken = require('../middleWares/validateToken')
 
-// User Registration endpoint
+
 userRouter.post('/register', async (req, res) => {
     try {
         const userExists = await userModel.findOne({ email: req.body.email });
@@ -26,20 +26,20 @@ userRouter.post('/register', async (req, res) => {
     }
 });
 
-// Login endpoint
+
 userRouter.post('/login', async (req, res) => {
     try {
-        // Check if user exists
+        
         const user = await userModel.findOne({ email: req.body.email });
         if (!user) {
             return res.status(400).json({ message: "User Not Found" });
         }
-        // Check password
+        
         const validPassword = await bcrypt.compare(req.body.password, user.password);
         if (!validPassword) {
             return res.status(400).json({ message: "Invalid Password" });
         }
-        // Create and assign a token
+        
         const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '1h' });
 
         res.cookie('token', token, {

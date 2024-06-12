@@ -15,12 +15,14 @@ const HOSTNAME = process.env.HOSTNAME || 'localhost';
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://weddplan.netlify.app', 
+    origin: 'http://localhost:5173', 
     credentials: true
 }));
-app.use("/api/auth", require('./Models/userController'));
-app.use("/api/events",require('./Models/eventController'));
-app.use("/api/bookings",require('./Models/BookingController'))
+app.use("/auth", require('./Models/userController'));
+app.use("/events",require('./Models/eventController'));
+app.use("/bookings",require('./Models/BookingController'))
+app.use("/decorate",require('./Models/decoController'));
+
 
 app.listen(PORT, HOSTNAME, () => {
     console.log(`Server is running on port ${PORT}`);
