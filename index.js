@@ -15,7 +15,7 @@ const HOSTNAME = process.env.HOSTNAME || 'localhost';
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173', 
+    origin: 'https://wedevemern.netlify.app/', 
     credentials: true
 }));
 app.use("/auth", require('./Models/userController'));
