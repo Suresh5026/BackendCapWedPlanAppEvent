@@ -9,6 +9,7 @@ const validateToken = (req, res, next) => {
     }
 
     const decryptObj = jwt.verify(token, process.env.TOKEN_SECRET);
+    console.log(decryptObj)
     req.user = decryptObj;
     req.token = token;
     next();

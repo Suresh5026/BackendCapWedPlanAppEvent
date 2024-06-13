@@ -4,8 +4,10 @@ const userModel = require('../Models/userModel');
 const admin = async (req, res, next) => {
   try {
     const token = req.cookies.token || req.headers.authorization.split(' ')[1];
+    console.log(token)
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
+     
     }
 
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
