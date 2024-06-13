@@ -36,7 +36,7 @@ router.post("/create-decoration", validateToken,admin, async (req, res) => {
     }
   });
 
-  router.get("/get-decoration", validateToken,admin, async (req, res) => {
+  router.get("/get-decoration", validateToken, async (req, res) => {
     try {
       const decorate = await Decoration.find();
       return res.json({ data:decorate ,message: "Decoration Fetched Successfully" });

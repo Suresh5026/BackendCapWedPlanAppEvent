@@ -36,7 +36,7 @@ router.delete("/delete-event/:id", validateToken,admin, async (req, res) => {
   }
 });
 
-router.get("/get-events", validateToken,admin, async (req, res) => {
+router.get("/get-events", validateToken, async (req, res) => {
   try {
     const event = await eventModel.find();
     return res.json({ data:event ,message: "Events Fetched Successfully" });

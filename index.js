@@ -22,6 +22,7 @@ app.use("/auth", require('./Models/userController'));
 app.use("/events",require('./Models/eventController'));
 app.use("/bookings",require('./Models/BookingController'))
 app.use("/decorate",require('./Models/decoController'));
+app.use("/plan",require("./Models/Plancontroller"))
 
 
 app.listen(PORT, HOSTNAME, () => {
