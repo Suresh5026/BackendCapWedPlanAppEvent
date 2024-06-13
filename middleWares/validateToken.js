@@ -3,13 +3,13 @@ const jwt = require('jsonwebtoken');
 const validateToken = (req, res, next) => {
   try {
     const token = req.cookies.token || (req.headers.authorization && req.headers.authorization.split(' ')[1]);
-   
+    // console.log(token)
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
     const decryptObj = jwt.verify(token, process.env.TOKEN_SECRET);
-    console.log(decryptObj)
+    // console.log(decryptObj)
     req.user = decryptObj;
     req.token = token;
     next();

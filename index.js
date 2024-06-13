@@ -1,11 +1,12 @@
 const express = require('express');
-const  { connectMongoDb } = require("./Database/db");
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-const app = express();
+
 
 require('dotenv').config();
+const  { connectMongoDb } = require("./Database/db");
+const app = express();
 
 connectMongoDb();
 
@@ -15,7 +16,7 @@ const HOSTNAME = process.env.HOSTNAME || 'localhost';
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://stellar-fenglisu-502361.netlify.app', 
+    origin: 'https://statuesque-granita-6f354c.netlify.app', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
