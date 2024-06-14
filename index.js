@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://fascinating-sopapillas-500997.netlify.app', 
+    origin: 'https://effulgent-pasca-478624.netlify.app', 
     credentials: true
 }));
 app.use("/auth", require('./Models/userController'));
