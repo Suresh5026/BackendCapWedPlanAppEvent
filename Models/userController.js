@@ -39,8 +39,9 @@ userRouter.post('/login', async (req, res) => {
         if (!validPassword) {
             return res.status(400).json({ message: "Invalid Password" });
         }
-        
+        console.log(process.env.TOKEN_SECRET)
         const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '1h' });
+        console.log(token)
 
         return res.status(200).json({ token, message: "Login Successful" });
     } catch (error) {

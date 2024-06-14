@@ -6,7 +6,7 @@ const validateToken = (req, res, next) => {
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-
+    
     const decryptObj = jwt.verify(token, process.env.TOKEN_SECRET);
     req.user = decryptObj;
     req.token = token;
