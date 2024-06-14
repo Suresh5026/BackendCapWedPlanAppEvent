@@ -6,6 +6,6 @@
 
 ---Each schemas perform their own functionalities---
 
----I have store the datas in Cookies both front end backend---
+---I have store the datas in Localstorage both front end backend---
 
 ---I implemented middleware function, token, Authentication is user to secure the user data---
