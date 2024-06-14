@@ -16,7 +16,7 @@ const HOSTNAME = process.env.HOSTNAME || 'localhost';
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://statuesque-granita-6f354c.netlify.app', 
+    origin: 'https://steady-heliotrope-43be37.netlify.app', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
