@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://effulgent-pasca-478624.netlify.app', 
+    origin: 'http://localhost:5173', 
     credentials: true
 }));
 app.use("/auth", require('./Models/userController'));
