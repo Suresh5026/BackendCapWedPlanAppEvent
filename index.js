@@ -9,6 +9,7 @@ connectMongoDb();
 
 const PORT = process.env.PORT || 8000;
 const HOSTNAME = process.env.HOSTNAME || 'localhost';
+app.use(bodyParser.json())
 
 app.use(express.json());
 app.use(cors({
