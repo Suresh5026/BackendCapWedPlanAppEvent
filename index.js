@@ -13,14 +13,15 @@ app.use(bodyParser.json())
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://loquacious-rugelach-b8460f.netlify.app', 
+    origin: 'http://localhost:5173', 
     credentials: true
 }));
 app.use("/auth", require('./Models/userController'));
 app.use("/events",require('./Models/eventController'));
 app.use("/bookings",require('./Models/BookingController'))
 app.use("/decorate",require('./Models/decoController'));
-app.use("/plan",require("./Models/Plancontroller"))
+app.use("/plan",require("./Models/Plancontroller"));
+app.use("/payment",require("./Models/paymentController"));
 
 
 app.listen(PORT, HOSTNAME, () => {
