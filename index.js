@@ -23,6 +23,11 @@ app.use("/decorate",require('./Models/decoController'));
 app.use("/plan",require("./Models/Plancontroller"));
 app.use("/payment",require("./Models/paymentController"));
 
+app.get("/",(req,res)=>{
+    res.send("Server running success!!!")
+});
+
+
 
 app.listen(PORT, HOSTNAME, () => {
     console.log(`Server is running on port ${PORT}`);
